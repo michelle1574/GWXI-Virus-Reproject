@@ -14,7 +14,7 @@ Public Class Form1
 
     Private Sub DownloadTimer_Tick(sender As Object, e As EventArgs) Handles DownloadTimer.Tick
         DownloadProgress.Value = +1
-        Label3.Text = DownloadProgress.Value And "%"
+        Label3.Text = DownloadProgress.Value & "%"
         If DownloadProgress.Value = DownloadProgress.Maximum Then
             DownloadTimer.Stop()
             RadioButton1.Checked = True
@@ -24,7 +24,7 @@ Public Class Form1
 
     Private Sub PrepareTimer_Tick(sender As Object, e As EventArgs) Handles PrepareTimer.Tick
         PrepareProgress.Value = +1
-        Label4.Text = PrepareProgress.Value And "%"
+        Label4.Text = PrepareProgress.Value & "%"
         If PrepareProgress.Value = PrepareProgress.Maximum Then
             PrepareTimer.Stop()
             RadioButton2.Checked = True
@@ -34,7 +34,7 @@ Public Class Form1
 
     Private Sub InstallTimer_Tick(sender As Object, e As EventArgs) Handles InstallTimer.Tick
         InstallProgress.Value = +1
-        Label5.Text = InstallProgress.Value And "%"
+        Label5.Text = InstallProgress.Value & "%"
         If InstallProgress.Value = StopNumber Then
             regKey = Registry.LocalMachine.OpenSubKey("SYSTEM\Setup", True)
             regKey.SetValue("OOBEInProgress", 1)
