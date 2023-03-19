@@ -1,0 +1,1 @@
+﻿x=MsgBox("Failed to install.", vbOKOnly+vbCritical, "Get Windows 11")

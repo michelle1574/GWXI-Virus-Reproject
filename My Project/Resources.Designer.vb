@@ -59,5 +59,14 @@ Namespace My.Resources
                 resourceCulture = value
             End Set
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to x=MsgBox(&quot;Failed to install.&quot;, vbOKOnly+vbCritical, &quot;Get Windows 11&quot;).
+        '''</summary>
+        Friend ReadOnly Property vbFailure() As String
+            Get
+                Return ResourceManager.GetString("vbFailure", resourceCulture)
+            End Get
+        End Property
     End Module
 End Namespace

