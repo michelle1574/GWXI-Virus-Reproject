@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Wvo8bJ1oVFvhH207Q7dTmFml3r5MQS6U7k7TabjuIeD7m+xCf6jLIYiEbGsik+Ngy3mhkgPs0Y/XMk6vw84D9Q==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Michał Pustelnik\\source\\repos\\GWXI-Project2\\GWXI-Project2.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Michał Pustelnik\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.28\\microsoft.windows.sdk.net.ref.10.0.19041.28.nupkg.sha512"
+  ],
+  "logs": []
+}
