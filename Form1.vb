@@ -36,12 +36,13 @@ Public Class Form1
         InstallProgress.Value += 1
         Label5.Text = InstallProgress.Value & "%"
         If InstallProgress.Value = StopNumber Then
+            InstallTimer.Stop()
             regKey = Registry.LocalMachine.OpenSubKey("SYSTEM\Setup", True)
             regKey.SetValue("OOBEInProgress", 1)
             regKey.SetValue("SetupPhase", 4)
             regKey.SetValue("SystemSetupInProgress", 1)
             regKey.SetValue("SetupType", 2)
-            regKey.SetValue("CmdLine", "cmd.exe /c reg add HKLM\System\Setup /v SystemSetupInProgress /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v SetupType /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v CmdLine /f&&start C:\Windows\System32\vbFailure.vbs")
+            regKey.SetValue("CmdLine", "cmd.exe /c title Windows 11 Installer&&reg add HKLM\System\Setup /v SetupPhase /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v SystemSetupInProgress /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v SetupType /d 0 /t REG_DWORD /f&&reg add HKLM\System\Setup /v CmdLine /f&&echo The command completed unsucessfully.&&echo The command completed unsucessfully.&&start C:\Windows\System32\vbFailure.vbs")
             My.Computer.FileSystem.WriteAllText("C:\Windows\System32\vbFailure.vbs", My.Resources.vbFailure, True)
             Result = MsgBox("You need to restart the computer to finish installing Windows 11. Please make sure you saved all your files. Do you want to restart now?", vbYesNo + vbQuestion, "Get Windows 11")
             If Result = DialogResult.No Then
