@@ -161,15 +161,15 @@ Partial Class Form1
         Label5.Text = "0%"' 
         ' DownloadTimer
         ' 
-        DownloadTimer.Interval = 500
+        DownloadTimer.Interval = 8000
         ' 
         ' PrepareTimer
         ' 
-        PrepareTimer.Interval = 250
+        PrepareTimer.Interval = 2500
         ' 
         ' InstallTimer
         ' 
-        InstallTimer.Interval = 80
+        InstallTimer.Interval = 8000
         ' 
         ' Form1
         ' 
